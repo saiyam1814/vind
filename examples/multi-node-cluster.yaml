@@ -1,0 +1,38 @@
+# Multi-Node vind Cluster Configuration
+# This example creates a cluster with multiple worker nodes
+
+experimental:
+  docker:
+    # Network configuration
+    network: "vind-multi-node"
+    
+    # Load balancer and registry proxy are enabled by default
+    
+    # Additional worker nodes
+    # Note: env vars are Docker container environment variables, not Kubernetes node labels
+    nodes:
+      - name: worker-1
+        # env vars are passed to the Docker container
+        env:
+          - "CUSTOM_VAR=value1"
+      
+      - name: worker-2
+        env:
+          - "CUSTOM_VAR=value2"
+      
+      - name: worker-3
+        env:
+          - "CUSTOM_VAR=value3"
+
+# Kubernetes version (optional, defaults to v1.34.0)
+controlPlane:
+  distro:
+    k8s:
+      version: "v1.34.0"
+
+# Create the cluster with:
+# vcluster create my-multi-node-cluster -f multi-node-cluster.yaml
+
+# Verify nodes:
+# kubectl get nodes
+# Should show: control-plane + worker-1 + worker-2 + worker-3
