@@ -3,11 +3,6 @@
 
 experimental:
   docker:
-    # Network configuration
-    network: "vind-multi-node"
-    
-    # Load balancer and registry proxy are enabled by default
-    
     # Additional worker nodes
     # Note: env vars are Docker container environment variables, not Kubernetes node labels
     nodes:
@@ -21,8 +16,6 @@ experimental:
           - "CUSTOM_VAR=value2"
       
       - name: worker-3
-        env:
-          - "CUSTOM_VAR=value3"
 
 # Kubernetes version (optional, defaults to v1.34.0)
 controlPlane:
