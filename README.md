@@ -60,6 +60,8 @@ vcluster platform start
 
 This gives you a beautiful web UI to manage your clusters!
 
+> **Important:** If you plan to use the Platform UI, start it **before** creating clusters. Clusters created before the platform is started will not be automatically synced to the UI. Only clusters created after `vcluster platform start` will appear in the dashboard.
+
 ### Create Your First Cluster
 
 ```bash
@@ -183,7 +185,7 @@ Check out our [examples directory](./examples/) for:
 Create isolated Kubernetes environments for each developer or feature branch.
 
 ### CI/CD Pipelines
-Spin up temporary clusters for testing and tear them down when done.
+Spin up temporary clusters for testing and tear them down when done. Use the official [setup-vind GitHub Action](https://github.com/loft-sh/setup-vind) to integrate vind into your workflows.
 
 ### Learning Kubernetes
 Perfect for learning K8s without the overhead of managing a full cluster.
@@ -236,7 +238,14 @@ docker exec vcluster.node.my-cluster.worker-1 journalctl -u kubelet --nopager
 
 - **[vCluster](https://github.com/loft-sh/vcluster)** - The underlying virtual cluster technology
 - **[vCluster Platform](https://github.com/loft-sh/loft)** - Management platform for vClusters
+- **[setup-vind GitHub Action](https://github.com/loft-sh/setup-vind)** - GitHub Action for using vind in CI/CD pipelines
 - **[KinD](https://github.com/kubernetes-sigs/kind)** - Kubernetes in Docker (alternative)
+
+### Community Articles
+
+- [Replacing KinD with vind - Deep Dive](https://www.vcluster.com/blog/replacing-kind-with-vind-deep-dive) - Complete walkthrough with GCP external node example
+- [vCluster in Docker Has Changed the Way We Build and Share Local Kubernetes Developer Environments](https://medium.com/itnext/vcluster-in-docker-has-changed-the-way-we-build-and-share-local-kubernetes-developer-environments-d4d8f4c57406) - By Artem
+- [Multiple PodCIDR Pools with Cilium and vCluster](https://medium.com/@shubham.katara59/multiple-podcidr-pools-with-cilium-and-vcluster-19105ef067ea) - By Shubham Katara
 
 ---
 
@@ -272,6 +281,6 @@ This project is licensed under the Apache 2.0 License - see the [LICENSE](LICENS
 
 **Made with ❤️ by the Kubernetes community**
 
-[⭐ Star us on GitHub](https://github.com/saiyam1814/vind) • [📖 Read the Docs](./docs/) • [💬 Join Slack](https://slack.loft.sh/)
+[⭐ Star us on GitHub](https://github.com/loft-sh/vind) • [📖 Read the Docs](./docs/) • [💬 Join Slack](https://slack.loft.sh/)
 
 </div>

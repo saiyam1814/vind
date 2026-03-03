@@ -91,6 +91,39 @@ Common issues and solutions when using vind.
    vcluster pause other-cluster
    ```
 
+## Platform UI Issues
+
+### Clusters Not Showing in Platform UI
+
+**Symptoms:**
+- Created clusters don't appear in the Platform UI
+- Dashboard shows no clusters
+
+**Cause:**
+
+The vCluster Platform only discovers clusters created **after** the platform is started. If you create clusters first and then start the platform, they will not be synced.
+
+**Solutions:**
+
+1. **Start the platform first, then create clusters:**
+   ```bash
+   # Start platform first
+   vcluster platform start
+
+   # Then create clusters - they will appear in the UI
+   vcluster create my-cluster
+   ```
+
+2. **If you already have clusters created before the platform:**
+   - Delete and recreate the clusters after starting the platform
+   ```bash
+   vcluster platform start
+   vcluster delete my-cluster
+   vcluster create my-cluster
+   ```
+
+---
+
 ## Connection Issues
 
 ### Cannot Connect to Cluster
@@ -369,7 +402,16 @@ Common issues and solutions when using vind.
 
 **Solutions:**
 
-1. **Verify VPN is enabled:**
+1. **EC2 connector script not executing directly:**
+   If the join script does not execute directly via `curl | bash`, download the script first and then run it with `sudo`:
+   ```bash
+   # Download the script first
+   curl -L -o join-script.sh "<join-script-url>"
+   chmod +x join-script.sh
+   sudo ./join-script.sh
+   ```
+
+2. **Verify VPN is enabled:**
    ```bash
    vcluster describe my-cluster | grep -i vpn
    ```

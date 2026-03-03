@@ -50,6 +50,26 @@ Guide for joining external nodes (like EC2 instances) to your local vind cluster
 **Usage:**
 Follow the step-by-step guide in the file.
 
+For a working example with a GCP node, see: [Replacing KinD with vind - Deep Dive](https://www.vcluster.com/blog/replacing-kind-with-vind-deep-dive)
+
+### GitHub Actions with setup-vind
+
+Use the official [setup-vind GitHub Action](https://github.com/loft-sh/setup-vind) to run vind clusters in your CI/CD pipelines:
+
+```yaml
+name: Test with vind
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: loft-sh/setup-vind@main
+      - run: |
+          vcluster create test-cluster
+          kubectl get nodes
+```
+
 ## Contributing Examples
 
 Have a useful example? Submit a pull request!

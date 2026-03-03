@@ -43,7 +43,7 @@ If you find issues with vind or the Docker driver:
 
 1. **Fork the repository**
    ```bash
-   git clone https://github.com/saiyam1814/vind.git
+   git clone https://github.com/loft-sh/vind.git
    cd vind
    ```
 
@@ -133,8 +133,8 @@ For code changes to the Docker driver itself, please contribute to:
 ## Questions?
 
 - 💬 [Slack Community](https://slack.loft.sh/)
-- 🐛 [GitHub Issues](https://github.com/saiyam1814/vind/issues)
-- 💡 [Discussions](https://github.com/saiyam1814/vind/discussions)
+- 🐛 [GitHub Issues](https://github.com/loft-sh/vind/issues)
+- 💡 [Discussions](https://github.com/loft-sh/vind/discussions)
 
 ## Code of Conduct
 

@@ -102,6 +102,8 @@ This provides:
 
 Access the UI at `https://localhost:10443` (default port).
 
+> **Important:** Start the platform **before** creating clusters. Clusters created before `vcluster platform start` will not be automatically synced to the UI. If you create clusters first and start the platform later, those existing clusters will not appear in the dashboard. Only clusters created after the platform is running will be visible in the UI.
+
 ## Basic Operations
 
 ### List Clusters

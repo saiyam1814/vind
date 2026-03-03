@@ -136,6 +136,8 @@ When enabled, vCluster mounts the containerd socket from the host Docker daemon.
 - **Cost Optimization**: Use local control plane with cloud workers
 - **Testing**: Test multi-cloud scenarios
 
+For a complete walkthrough with a GCP external node, see: [Replacing KinD with vind - Deep Dive](https://www.vcluster.com/blog/replacing-kind-with-vind-deep-dive)
+
 ### Prerequisites
 
 1. **Private Nodes enabled** in your vCluster
@@ -187,6 +189,8 @@ vcluster join my-cluster \
   --token <join-token> \
   --platform-url https://your-platform-url
 ```
+
+> **Note:** If the join script does not execute directly via `curl | bash` on your external node, download it first and then run it with `sudo`. See the [troubleshooting guide](./troubleshooting.md#cannot-join-external-node) for details.
 
 #### Step 4: Verify
 
