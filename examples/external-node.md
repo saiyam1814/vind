@@ -41,6 +41,18 @@ On your external node (e.g., EC2 instance) run the command from the previous ste
 curl ...
 ```
 
+> **Note:** If the join script does not execute directly via `curl | bash`, download it first and then run it with `sudo`:
+> ```bash
+> curl -L -o join-script.sh "<join-script-url>"
+> chmod +x join-script.sh
+> sudo ./join-script.sh
+> ```
+
+## Real-World Example: GCP Node as External Node
+
+For a complete working example of joining a GCP instance as an external node, see:
+[Replacing KinD with vind - Deep Dive](https://www.vcluster.com/blog/replacing-kind-with-vind-deep-dive)
+
 ## Step 5: Verify
 
 Back on your local machine:
