@@ -1,0 +1,106 @@
+name: Bug Report
+description: Report a bug with vind (vCluster in Docker)
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: What happened?
+      description: Please provide as much info as possible. Not doing so may result in your bug not being addressed in a timely manner.
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect to happen?
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: How can we reproduce it (as minimally and precisely as possible)?
+    validations:
+      required: true
+
+  - type: textarea
+    id: vcluster-config
+    attributes:
+      label: vCluster config
+      description: The vcluster.yaml or CLI flags used to create the cluster.
+      value: |
+        <details>
+
+        ```yaml
+        # Paste your vcluster.yaml here
+        ```
+
+        </details>
+    validations:
+      required: true
+
+  - type: textarea
+    id: version-info
+    attributes:
+      label: vCluster and Docker version
+      value: |
+        <details>
+
+        ```console
+        $ vcluster --version
+        # paste output here
+
+        $ docker version
+        # paste output here
+
+        $ uname -a
+        # paste output here
+        ```
+
+        </details>
+    validations:
+      required: true
+
+  - type: dropdown
+    id: os
+    attributes:
+      label: Operating System
+      options:
+        - macOS (Apple Silicon)
+        - macOS (Intel)
+        - Linux (x86_64)
+        - Linux (arm64)
+        - Windows (WSL2)
+        - Other
+    validations:
+      required: true
+
+  - type: dropdown
+    id: platform-ui
+    attributes:
+      label: Using vCluster Platform UI?
+      description: Was `vcluster platform start` run before creating clusters?
+      options:
+        - "Yes - platform started before cluster creation"
+        - "Yes - platform started after cluster creation"
+        - "No - not using Platform UI"
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant logs
+      description: |
+        Control plane logs: `docker exec vcluster.cp.<cluster-name> journalctl -u vcluster --nopager`
+        Node logs: `docker exec vcluster.node.<cluster-name>.<node-name> journalctl -u kubelet --nopager`
+        Or create with debug: `vcluster create <cluster-name> --debug`
+      render: shell
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Anything else we need to know?
+      description: Additional context, screenshots, output of `docker ps -a | grep vcluster`, `vcluster list`, etc.
