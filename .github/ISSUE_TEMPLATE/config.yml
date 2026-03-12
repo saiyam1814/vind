@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Slack Community
+    url: https://slack.vcluster.com/
+    about: Ask questions and get help from the community
+  - name: vCluster Core Issues
+    url: https://github.com/loft-sh/vcluster/issues
+    about: For bugs in vCluster core, file issues in the vCluster repository
+  - name: Discussions
+    url: https://github.com/loft-sh/vcluster/discussions
+    about: General questions and discussions
