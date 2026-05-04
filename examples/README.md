@@ -44,6 +44,35 @@ kubectl apply -f loadbalancer-service.yaml
 kubectl get svc nginx-loadbalancer
 ```
 
+### [multi-node.yaml](./multi-node.yaml)
+Minimal 3-worker-node cluster configuration.
+
+**Usage:**
+```bash
+vcluster create my-cluster -f multi-node.yaml
+kubectl get nodes
+```
+
+### [affinity.yaml](./affinity.yaml)
+Node affinity example — schedule a workload only on worker nodes (no control-plane).
+
+**Usage:**
+```bash
+# With a multi-node cluster running
+kubectl apply -f affinity.yaml
+kubectl get pods -o wide
+```
+
+### [antiaffinity.yaml](./antiaffinity.yaml)
+Topology spread constraints — spread pods evenly across nodes using `topologySpreadConstraints`.
+
+**Usage:**
+```bash
+# With a multi-node cluster running
+kubectl apply -f antiaffinity.yaml
+kubectl get pods -o wide
+```
+
 ### [external-node.md](./external-node.md)
 Guide for joining external nodes (like EC2 instances) to your local vind cluster.
 
