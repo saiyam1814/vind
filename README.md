@@ -192,6 +192,7 @@ Check out our [examples directory](./examples/) for:
 - [Load balancer services](./examples/loadbalancer-service.yaml)
 - [Node affinity](./examples/affinity.yaml)
 - [Pod anti-affinity / topology spread](./examples/antiaffinity.yaml)
+- [Snapshot and restore](./examples/snapshot-restore.md)
 - [External node joining](./examples/external-node.md)
 
 ---

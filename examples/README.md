@@ -73,6 +73,16 @@ kubectl apply -f antiaffinity.yaml
 kubectl get pods -o wide
 ```
 
+### [snapshot-restore.md](./snapshot-restore.md)
+End-to-end guide for snapshot and restore — local files, OCI registries, S3, multi-node clusters, and cloning environments under a new name.
+
+**Highlights:**
+- Stateful stack backup and restore (PVCs survive)
+- Share environments via OCI registry (`oci://ghcr.io/...`)
+- Clone a cluster with a different name using `vcluster create --restore`
+- S3/MinIO example with full URL params
+- Multi-node snapshot walkthrough
+
 ### [external-node.md](./external-node.md)
 Guide for joining external nodes (like EC2 instances) to your local vind cluster.
 

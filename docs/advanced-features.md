@@ -335,12 +335,21 @@ vcluster restore my-cluster container:///data/my-snapshot.tar.gz
 vcluster restore my-cluster oci://ghcr.io/my-user/my-repo:my-tag --restore-volumes
 ```
 
+### Clone a Cluster with a Different Name
+
+The `--restore` flag on `vcluster create` creates a new cluster from a snapshot under a new name — useful for spinning up a debug copy of staging or creating per-developer clones:
+
+```bash
+vcluster create debug-copy --restore oci://ghcr.io/myorg/snapshots:staging-v1
+```
+
 ### Use Cases
 
 - **Reproducible demos** — snapshot a configured demo cluster and restore it fresh before each presentation
 - **Team sharing** — push a snapshot to an OCI registry and let teammates pull the exact same environment
 - **Backup before experiments** — snapshot before installing new operators or breaking changes
 - **CI/CD templates** — seed test clusters from a pre-built snapshot to skip long setup steps
+- **Onboarding** — new engineers restore a golden environment on day one instead of running 12 Helm installs
 
 ## Best Practices
 
